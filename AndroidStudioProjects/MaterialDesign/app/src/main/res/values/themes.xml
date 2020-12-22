@@ -1,0 +1,31 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.MaterialDesign" parent="Theme.MaterialComponents.Light.NoActionBar">
+
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:navigationBarColor">@color/colorPrimary</item>
+        <item name="popupTheme">@style/PopupTheme</item>
+
+    </style>
+
+    <style name="PopupTheme" parent="Theme.MaterialComponents.Light">
+
+        <item name="android:background">@color/colorBackground</item>
+        <item name="android:textColor">@color/colorItem</item>
+
+    </style>
+    
+    <style name="RaisedButton" parent="Widget.AppCompat.Button.Colored">
+
+        <item name="backgroundTint">@color/colorRaisedButton</item>
+
+    </style>
+    
+    <style name="SwitchTheme">
+
+        <item name="colorAccent">@color/colorSwitch</item>
+
+    </style>
+
+</resources>

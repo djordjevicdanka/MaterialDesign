@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name"></string>
+    <string name="item_1">item 1</string>
+    <string name="item_2">item 2</string>
+    <string name="item_3">item 3</string>
+    <string name="item_4">item 4</string>
+    <string name="username">username</string>
+    <string name="search">search</string>
+    <string name="raised_button">RAISED BUTTON</string>
+    <string name="switch_off_on">Switch OFF/ON</string>
+
+</resources>
