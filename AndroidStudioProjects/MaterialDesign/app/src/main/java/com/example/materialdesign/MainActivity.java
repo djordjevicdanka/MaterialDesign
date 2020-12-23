@@ -3,21 +3,42 @@ package com.example.materialdesign;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatCheckBox;
+import androidx.appcompat.widget.AppCompatEditText;
+import androidx.appcompat.widget.AppCompatRadioButton;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class MainActivity extends AppCompatActivity {
 
     Toolbar toolbar;
     AppCompatButton raisedButton;
+    AppCompatButton flatButton;
     SwitchCompat switchCompat;
+    AppCompatEditText user;
+    AppCompatEditText pass;
+    TextInputLayout userLayout;
+    TextInputLayout passLayout;
+    FloatingActionButton fab;
+    AppCompatCheckBox appCompatCheckBox;
+    RadioGroup radioGroup;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +53,59 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         raisedButton = (AppCompatButton) findViewById(R.id.raised_btn);
+        flatButton = (AppCompatButton) findViewById(R.id.flat_btn);
+        fab = (FloatingActionButton) findViewById(R.id.fab_btn);
+        radioGroup = (RadioGroup) findViewById(R.id.radioGroup_id);
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(RadioGroup group, int i) {
+
+                switch (i){
+
+                    case R.id.RadioButton1_id:
+
+                        Toast.makeText(getApplicationContext(), "RadioButton 1", Toast.LENGTH_LONG).show();
+
+                        break;
+
+                    case R.id.RadioButton2_id:
+
+                        Toast.makeText(getApplicationContext(), "RadioButton 2", Toast.LENGTH_LONG).show();
+
+                        break;
+                }
+
+            }
+        });
+
         raisedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Raised Button", Toast.LENGTH_SHORT).show();
             }
         });
+
+        flatButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(getApplicationContext(), "Flat Button", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        fab.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(getApplicationContext(), "Floating Action Button", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         switchCompat= (SwitchCompat) findViewById(R.id.switch_id);
         switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -55,6 +123,87 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        appCompatCheckBox = (AppCompatCheckBox) findViewById(R.id.checkbox_id);
+        appCompatCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean b) {
+
+                if (b){
+
+                    Toast.makeText(getApplicationContext(), "CheckBox is Enable", Toast.LENGTH_LONG).show();
+
+
+                }else {
+
+                    Toast.makeText(getApplicationContext(), "CheckBox is Disable", Toast.LENGTH_LONG).show();
+
+                }
+            }
+        });
+
+        user = (AppCompatEditText) findViewById(R.id.username_TextField);
+        userLayout = (TextInputLayout) findViewById(R.id.username_TextInputLayout);
+        pass = (AppCompatEditText) findViewById(R.id.password_TextField);
+        passLayout = (TextInputLayout) findViewById(R.id.password_TextInputLayout);
+
+        user.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (user.getText().toString().isEmpty()){
+
+                    userLayout.setErrorEnabled(true);
+                    userLayout.setError("please enter your username!");
+
+                }else {
+
+                    userLayout.setErrorEnabled(false);
+
+                }
+            }
+        });
+
+
+
+        user.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+
+                if (user.getText().toString().isEmpty()){
+
+                    userLayout.setErrorEnabled(true);
+                    userLayout.setError("please enter your username!");
+
+                }else {
+
+                    userLayout.setErrorEnabled(false);
+
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+
+            }
+        });
+
+
+        passLayout.setCounterEnabled(true);
+        passLayout.setCounterMaxLength(8);
+
 
     }
 

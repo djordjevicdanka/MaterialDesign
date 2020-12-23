@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name"></string>
+    <string name="app_name">MaterialDesign</string>
     <string name="item_1">item 1</string>
     <string name="item_2">item 2</string>
     <string name="item_3">item 3</string>
@@ -8,5 +8,11 @@
     <string name="search">search</string>
     <string name="raised_button">RAISED BUTTON</string>
     <string name="switch_off_on">Switch OFF/ON</string>
+    <string name="password">password:</string>
+    <string name="flat_button">FLAT BUTTON</string>
+    <string name="checkbox">CheckBox</string>
+    <string name="radionbutton_1">RadionButton 1</string>
+    <string name="radiobutton_2">RadioButton 2</string>
+
 
 </resources>

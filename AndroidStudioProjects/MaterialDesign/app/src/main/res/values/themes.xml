@@ -27,5 +27,29 @@
         <item name="colorAccent">@color/colorSwitch</item>
 
     </style>
+    
+    <style name="CharacterOverflow">
+
+        <item name="android:textColor">@color/colorError</item>
+
+    </style>
+
+    <style name="FlatButton" parent="Widget.AppCompat.Button.Borderless">
+
+        <item name="android:textColor">@color/colorFlatButton</item>
+
+    </style>
+    
+    <style name="CheckBoxTheme">
+
+        <item name="colorAccent">@color/colorEnable</item>
+        <item name="colorControlNormal">@color/colorDisable</item>
+
+    </style>
+
+    <style name="RadioButtonTheme">
+
+        <item name="colorAccent">@color/colorRadioButtno</item>
+    </style>
 
 </resources>

@@ -9,9 +9,15 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colorPrimary">#F44336</color>
     <color name="colorPrimaryDark">#D32F2F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#404CFF</color>
     <color name="colorBackground">#FFFFFFFF</color>
     <color name="colorItem">#2196F3</color>
     <color name="colorRaisedButton">#4CAF50</color>
     <color name="colorSwitch">#40C4FF</color>
+    <color name="colorError">#FF5252</color>
+    <color name="colorFlatButton">#2196F3</color>
+    <color name="colorFAB">#E040FB</color>
+    <color name="colorEnable">#FF5252</color>
+    <color name="colorDisable">#FFAB40</color>
+    <color name="colorRadioButtno">#69F0AE</color>
 </resources>
