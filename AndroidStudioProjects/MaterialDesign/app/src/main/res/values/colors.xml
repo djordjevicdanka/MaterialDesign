@@ -20,4 +20,6 @@
     <color name="colorEnable">#FF5252</color>
     <color name="colorDisable">#FFAB40</color>
     <color name="colorRadioButtno">#69F0AE</color>
+    <color name="colorProgressBar">#E040FB</color>
+    <color name="colorAlertDialog">#448AFF</color>
 </resources>

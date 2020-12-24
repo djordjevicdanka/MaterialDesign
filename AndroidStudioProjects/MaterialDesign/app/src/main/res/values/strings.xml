@@ -13,6 +13,7 @@
     <string name="checkbox">CheckBox</string>
     <string name="radionbutton_1">RadionButton 1</string>
     <string name="radiobutton_2">RadioButton 2</string>
+    <string name="open_activity_2">Open Activity 2</string>
 
 
 </resources>

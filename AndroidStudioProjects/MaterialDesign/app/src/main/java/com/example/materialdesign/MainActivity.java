@@ -1,6 +1,7 @@
 package com.example.materialdesign;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatCheckBox;
@@ -10,19 +11,28 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,6 +47,12 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton fab;
     AppCompatCheckBox appCompatCheckBox;
     RadioGroup radioGroup;
+    ProgressBar progressBar;
+    Handler handler;
+    Runnable runnable;
+    Timer timer;
+
+    private Button button;
 
 
 
@@ -44,6 +60,42 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        button = (Button) findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                openActivity2();
+            }
+        });
+
+
+        progressBar = (ProgressBar) findViewById(R.id.progressBar_id);
+        progressBar.setVisibility(View.VISIBLE);
+
+        handler = new Handler();
+        runnable = new Runnable() {
+
+            @Override
+            public void run() {
+
+                timer.cancel();
+                progressBar.setVisibility(View.GONE);
+            }
+        };
+
+
+
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+
+                handler.post(runnable);
+            }
+        },8000,1000);
 
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -168,6 +220,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
         user.addTextChangedListener(new TextWatcher() {
 
             @Override
@@ -246,4 +300,11 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void openActivity2(){
+
+        Intent intent = new Intent(this, Activity2.class);
+        startActivity(intent);
+    }
+
 }
