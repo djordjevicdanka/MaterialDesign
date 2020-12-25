@@ -64,4 +64,10 @@
 
     </style>
 
+    <style name="ConfirmationDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+
+        <item name="colorAccent">@color/colorConfirmationDialog</item>
+
+    </style>
+
 </resources>

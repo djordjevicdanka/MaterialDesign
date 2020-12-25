@@ -22,4 +22,8 @@
     <color name="colorRadioButtno">#69F0AE</color>
     <color name="colorProgressBar">#E040FB</color>
     <color name="colorAlertDialog">#448AFF</color>
+    <color name="colorConfirmationDialog">#64FFDA</color>
+    <color name="colorSnackbarBackground">#3F51B5</color>
+    <color name="colorSnackbarText">#000000</color>
+    <color name="colorSnackbarActionText">#69F0AE</color>
 </resources>

@@ -5,16 +5,41 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+
+import com.google.android.material.snackbar.Snackbar;
 
 public class Activity2 extends AppCompatActivity {
 
     AlertDialog alertDialog;
     AlertDialog.Builder builder;
+    Snackbar snackbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
+
+        View view= findViewById(R.id.activity2);
+        snackbar = Snackbar.make(view, "Hello Snackbar!", Snackbar.LENGTH_INDEFINITE);
+        snackbar.setDuration(10000);
+        snackbar.setAction("OK", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                snackbar.dismiss();
+            }
+        });
+
+        View v = snackbar.getView();
+        v.setBackgroundColor(getResources().getColor(R.color.colorSnackbarBackground));
+
+
+        snackbar.show();
+        //snackbar.dismiss();
+
+
 
         builder = new AlertDialog.Builder(Activity2.this);
         builder.setMessage("Discard draft?");

@@ -11,6 +11,7 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,6 +30,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Timer;
@@ -51,8 +53,12 @@ public class MainActivity extends AppCompatActivity {
     Handler handler;
     Runnable runnable;
     Timer timer;
-
+    AlertDialog dialog;
+    AlertDialog.Builder builder;
+    String[] items = {"Easy" , "Medium" , "Hard" , "Very hard"};
+    String result = "";
     private Button button;
+    ProgressDialog progressDialog;
 
 
 
@@ -60,6 +66,42 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        progressDialog = new ProgressDialog(MainActivity.this);
+        progressDialog.setTitle("Progress dialog");
+        progressDialog.setMessage("Please wait..");
+        progressDialog.show();
+        //progressDialog.cancel();
+
+        builder = new AlertDialog.Builder(MainActivity.this,R.style.ConfirmationDialog);
+        builder.setTitle("Select the difficulty level");
+        builder.setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int i) {
+
+                result = items[i];
+            }
+        });
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+            }
+        });
+
+        builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        dialog= builder.create();
+        dialog.show();
+
 
         button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
