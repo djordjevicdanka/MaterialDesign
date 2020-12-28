@@ -14,6 +14,11 @@
     <string name="radionbutton_1">RadionButton 1</string>
     <string name="radiobutton_2">RadioButton 2</string>
     <string name="open_activity_2">Open Activity 2</string>
+    <string name="near_by">Near by</string>
+    <string name="favorites">Favorites</string>
+    <string name="recents">Recents</string>
+    <string name="open_activity_3">open Activity 3</string>
+    <string name="android_games">Android Games</string>
 
 
 </resources>

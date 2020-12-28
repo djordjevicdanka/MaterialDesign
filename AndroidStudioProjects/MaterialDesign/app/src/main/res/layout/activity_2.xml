@@ -8,5 +8,51 @@
     tools:context=".Activity2">
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_id"
+        tools:ignore="MissingConstraints,NotSibling"
+        android:text="@string/recents"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textStyle="bold"
+        android:textSize="40sp"/>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottomNavigation_id"
+        android:layout_gravity="top"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/navigation_menu"
+        app:theme="@style/BottomNavigationTheme"
+        app:itemBackground="@color/colorProgressBar"
+        app:itemTextColor="@color/colorConfirmationDialog"
+        tools:ignore="MissingConstraints" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/open_activity_3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/text_id"
+        tools:ignore="MissingConstraints,UnknownId"
+        tools:layout_editor_absoluteX="32dp" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
