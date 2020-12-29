@@ -19,6 +19,9 @@
     <string name="recents">Recents</string>
     <string name="open_activity_3">open Activity 3</string>
     <string name="android_games">Android Games</string>
+    <string name="one">One</string>
+    <string name="two">Two</string>
+    <string name="three">Three</string>
 
 
 </resources>

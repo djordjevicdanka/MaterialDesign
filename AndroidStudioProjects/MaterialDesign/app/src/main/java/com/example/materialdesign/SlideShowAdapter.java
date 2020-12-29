@@ -8,7 +8,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.PagerAdapter;
+
+import com.google.android.material.snackbar.Snackbar;
 
 public class SlideShowAdapter extends PagerAdapter {
 
@@ -31,7 +34,7 @@ public class SlideShowAdapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return (view==(LinearLayout)object);
+        return (view==(ConstraintLayout)object);
     }
 
     @NonNull
@@ -46,6 +49,16 @@ public class SlideShowAdapter extends PagerAdapter {
 
         img.setImageResource(images[position]);
 
+        img.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Snackbar.make(view,"Image"+(position + 1), Snackbar.LENGTH_LONG).show();
+
+            }
+        });
+
         container.addView(view);
 
         return  view;
@@ -55,7 +68,7 @@ public class SlideShowAdapter extends PagerAdapter {
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
 
-        container.removeView((LinearLayout)object);
+        container.removeView((ConstraintLayout)object);
 
     }
 }

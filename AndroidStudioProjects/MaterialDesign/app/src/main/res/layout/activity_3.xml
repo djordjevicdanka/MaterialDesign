@@ -17,7 +17,24 @@
         android:layout_width="match_parent"
         android:layout_height="220dp"
         android:id="@+id/viewPager_id"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2_id"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout_id"
         tools:ignore="MissingConstraints" />
+
+    <me.relex.circleindicator.CircleIndicator
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:id="@+id/circleIndicator_id"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout_id"
+        tools:ignore="MissingConstraints" />
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/toolbar2_id"
+        android:id="@+id/tabLayout_id"
+        android:background="?attr/colorAccent"
+
+        app:tabGravity="fill" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
